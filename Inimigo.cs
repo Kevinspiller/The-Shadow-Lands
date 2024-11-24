@@ -13,21 +13,35 @@ namespace The_Shadow_Lands{
     /// específicos dos inimigos. 
     /// </summary>
     //  dois pontos para herdar personagem
-    internal class Inimigo : Personagem{
-        public int enemyPower;
+    internal class Inimigo : Personagem {
         //criando um construtor
-        public Inimigo(){
-            name = "Abraxis";
-            health = 120;
-            strength = 10000;
-            level = 10;
-            dexterity = 10;
-            enemyPower = 9999;
+        public Inimigo() {
+            name = "";
+            health = 100;
+            strength = 20;
+            dexterity = 25;
 
-        }
-
-        public void Taunt(){
-            Console.WriteLine("Hahahaha, that's the best you can do?");
         }
     }
-}
+
+        internal class Fury : Personagem
+        {
+
+            public Fury()
+            {
+                name = "Fury";
+                health = 100;
+                strength = 25;
+                dexterity = 20;
+            }
+
+            public void Taunt(){
+                Fury Enemy = new Fury();
+                Console.WriteLine("\n"+Enemy.name+":" + "Hahahaha, that's the best you can do?");
+            }
+            public void Scream(){
+                Fury Enemy = new Fury();
+                Console.WriteLine("\n"+Enemy.name+":" + "Ahhhh, you bastard!");
+            }
+        }
+ }

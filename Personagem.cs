@@ -13,7 +13,6 @@ namespace The_Shadow_Lands{
         public string name;
         public float health;
         public float strength;
-        public int level;
         public float dexterity;
         public string guardianAngel;
 
@@ -23,7 +22,7 @@ namespace The_Shadow_Lands{
             name = "";
             health = 100;
             strength = 10;
-            level = 1;
+            dexterity = 5;
             guardianAngel = "";
 
         }
@@ -31,9 +30,9 @@ namespace The_Shadow_Lands{
             //recebe o nome quando cria a classe
             name = nomeDado;
             //dados padrao
-            health = 100;
-            strength = 10;
-            level = 1;
+            health = 70;
+            strength = 40;
+            dexterity = 25;
             guardianAngel = "Kevin";
             Console.WriteLine("\nHello mortal one called: " + nomeDado);
             Console.WriteLine("\nFarewell, now let's see who will accompany you in your journey...");
