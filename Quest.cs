@@ -64,7 +64,7 @@ namespace The_Shadow_Lands {
             Console.WriteLine("\nTo destroy mankind you must annihilate" + " " + fury.name + ", the one called Protector of the Mankind.");
             Console.WriteLine("\nHow do you want to approach her?");
             Console.WriteLine("\nYOUR LIFE:" + personagem.health + "\nFURY HEALTH:" + fury.health);
-            Console.WriteLine("\n1 for slow and strong attack\n2 for fast but normal attack");
+            Console.WriteLine("\n1 for slow but strong attack\n2 for fast but normal attack");
             Console.WriteLine("\nSlow attacks do " + personagem.strength + " of damage and Fast attacks do " + personagem.dexterity);
             string resposta = Console.ReadLine();
 
@@ -94,16 +94,25 @@ namespace The_Shadow_Lands {
                 if (fury.health <= 0)
                 {
                     Console.WriteLine("\nCongratulations, you've defeated Fury!");
-                    break; // Encerra o loop quando Fury for derrotada
+                    Console.ReadKey();
+                    break;
                 }
 
-                if (personagem.health <= 0)
+                if (personagem.health <= 0 && personagem.guardianAngelHealth == 1)
+                {
+                    personagem.health += personagem.health + 15;
+                    personagem.guardianAngelHealth = 0;
+                    Console.WriteLine("\nYou guardian angel saved you! He grants his life to resurrect you with" + " " + personagem.health + " " + more points of life");
+                }
+
+                if (personagem.health <= 0 && personagem.guardianAngelHealth == 0)
                 {
                     Console.WriteLine("\nI knew you were weak but not that much! More luck next time hahahaha");
-                    break; // Encerra o loop quando o personagem for derrotado
-                }
-
-                // Exibir o status atual antes de perguntar novamente
+                    Console.ReadKey();
+                    break;
+                }                
+                
+                 // Exibir o status atual antes de perguntar novamente
                 Console.WriteLine("\nYOUR LIFE: " + personagem.health + " -" + " FURY HEALTH: " + fury.health);
                 Console.WriteLine("\nWhat's your next move? 1 or 2?");
                 Console.WriteLine("\nSlow attacks do " + personagem.strength + " of damage and Fast attacks do " + personagem.dexterity);

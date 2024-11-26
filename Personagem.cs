@@ -15,6 +15,7 @@ namespace The_Shadow_Lands{
         public float strength;
         public float dexterity;
         public string guardianAngel;
+        public int guardianAngelHealth;
 
         //construtor
         public Personagem(){
@@ -24,6 +25,7 @@ namespace The_Shadow_Lands{
             strength = 10;
             dexterity = 5;
             guardianAngel = "";
+            guardianAngelHealth = 1;
 
         }
         public Personagem(string nomeDado, int idade){
@@ -34,6 +36,7 @@ namespace The_Shadow_Lands{
             strength = 40;
             dexterity = 25;
             guardianAngel = "Kevin";
+            guardianAngelHealth = 1;
             Console.WriteLine("\nHello mortal one called: " + nomeDado);
             Console.WriteLine("\nFarewell, now let's see who will accompany you in your journey...");
             if(name != guardianAngel){

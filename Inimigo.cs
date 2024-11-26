@@ -44,4 +44,29 @@ namespace The_Shadow_Lands{
                 Console.WriteLine("\n"+Enemy.name+":" + "Ahhhh, you bastard!");
             }
         }
- }
+
+    internal class Abraxis : Personagem
+    {
+
+        public Abraxis()
+        {
+            name = "Abraxis";
+            health = 110;
+            strength = 30;
+            dexterity = 10;
+        }
+
+        public void Taunt()
+        {
+            Abraxis Enemy = new Abraxis();
+            Console.WriteLine("\n" + Enemy.name + ":" + "You really are a fool for thinking you can defeat me!");
+        }
+        public void Scream()
+        {
+            Abraxis Enemy = new Abraxis();
+            Console.WriteLine("\n" + Enemy.name + ":" + "You won't defeat me!");
+        }
+    }
+
+
+}
