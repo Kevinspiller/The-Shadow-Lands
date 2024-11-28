@@ -39,8 +39,8 @@ namespace The_Shadow_Lands{
             guardianAngelHealth = 1;
             Console.WriteLine("\nHello mortal one called: " + nomeDado);
             Console.WriteLine("\nFarewell, now let's see who will accompany you in your journey...");
-            if(name != guardianAngel){
-                Console.WriteLine("\nYour Guardian Angel goes by the name of " + guardianAngel);
+            if(!name.Equals(guardianAngel, StringComparison.OrdinalIgnoreCase)){
+                Console.WriteLine("\nYour Guardian Angel goes by the name of " + guardianAngel + "!");
             } else {
                 Console.WriteLine("\nBy the gods, your name is the same of your Guardian Angel: " + guardianAngel + "!");
             }

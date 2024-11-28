@@ -45,28 +45,51 @@ namespace The_Shadow_Lands{
             }
         }
 
-    internal class Abraxis : Personagem
-    {
+        internal class Abraxis : Personagem
+        {
 
-        public Abraxis()
-        {
-            name = "Abraxis";
-            health = 110;
-            strength = 30;
-            dexterity = 10;
+            public Abraxis()
+            {
+                name = "Abraxis";
+                health = 110;
+                strength = 20;
+                dexterity = 15;
+            }
+
+            public void Taunt()
+            {
+                Abraxis Enemy = new Abraxis();
+                Console.WriteLine("\n" + Enemy.name + ":" + "You really are a fool for thinking you can defeat me!");
+            }
+            public void Scream()
+            {
+                Abraxis Enemy = new Abraxis();
+                Console.WriteLine("\n" + Enemy.name + ": " + "Maybe I've underestimated you!");
+            }
         }
 
-        public void Taunt()
+        internal class Absalom : Personagem
         {
-            Abraxis Enemy = new Abraxis();
-            Console.WriteLine("\n" + Enemy.name + ":" + "You really are a fool for thinking you can defeat me!");
+
+            public Absalom()
+            {
+                name = "Absalom";
+                health = 120;
+                strength = 30;
+                dexterity = 10;
+            }
+
+            public void Taunt()
+            {
+                Absalom Enemy = new Absalom();
+                Console.WriteLine("\n" + Enemy.name + ": " + "You've grown weak!");
+            }
+            public void Scream()
+            {
+                Absalom Enemy = new Absalom();
+                Console.WriteLine("\n" + Enemy.name + ": " + "You cannot defeat me, without forever damaging your soul!");
+            }
         }
-        public void Scream()
-        {
-            Abraxis Enemy = new Abraxis();
-            Console.WriteLine("\n" + Enemy.name + ":" + "You won't defeat me!");
-        }
-    }
 
 
 }
