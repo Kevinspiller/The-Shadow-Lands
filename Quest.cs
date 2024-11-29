@@ -34,8 +34,7 @@ namespace The_Shadow_Lands {
 
                 if (keyInfo.Key == ConsoleKey.Enter){
                     Random rnd = new Random();
-                    int numeroSorteado = rnd.Next(1, 3);
-                    Console.WriteLine("\nYour lucky number (or not) is " + numeroSorteado + "!");
+                    numeroSorteado = rnd.Next(1, 4);
                     // Aqui é onde a tecla Enter foi pressionada!
                 }
                 else{
@@ -44,11 +43,12 @@ namespace The_Shadow_Lands {
 
             } while (keyInfo.Key != ConsoleKey.Enter);
             Escolha(numeroSorteado);
-            Console.WriteLine(numeroSorteado);
+
         }
 
         public void Escolha(int numero) {
             Console.Clear();
+            Console.WriteLine("\nYour lucky number (or not) is " + numero + "!");
             Console.WriteLine("\nYour quest is...");
             switch (numero) {
                 case 1:
@@ -67,14 +67,15 @@ namespace The_Shadow_Lands {
         }
 
         public void case1(){
-            Console.WriteLine("\nTo destroy mankind you must annihilate" + " " + fury.name + ", the one called Protector of the Mankind.");
+            Console.WriteLine("\nTo destroy mankind you must annihilate" + " " + fury.name + ", the one called Protector of Mankind.");
             Console.WriteLine("\nHow do you want to approach her?");
             Console.WriteLine("\nYOUR LIFE:" + personagem.health + "\nFURY HEALTH:" + fury.health);
             Console.WriteLine("\n1 for slow but strong attack\n2 for fast but normal attack");
             Console.WriteLine("\nSlow attacks do " + personagem.strength + " of damage and Fast attacks do " + personagem.dexterity);
             string resposta = Console.ReadLine();
 
-            while (true){
+            while (true)
+            {
 
                 if (resposta == "1")
                 {
@@ -97,26 +98,22 @@ namespace The_Shadow_Lands {
                 }
 
                 // Verificar condições de vitória ou derrota dentro do loop
-                if (fury.health <= 0)
-                {
-                    Console.WriteLine("\nCongratulations, you've defeated Fury!");
-                    Console.ReadKey();
+                if (fury.health <= 0){
+                    fury.Victory();
                     break;
                 }
-
-                if (personagem.health <= 0 && personagem.guardianAngelHealth == 1)
-                {
+                if (personagem.health <= 0 && personagem.guardianAngelHealth == 1){
                     personagem.health += personagem.health + 15;
                     personagem.guardianAngelHealth = 0;
-                    Console.WriteLine("\nYou guardian angel saved you! He grants his life to resurrect you with" + " " + personagem.health + " " + "more points of life");
+                    if(personagem.health < 0)
+                        personagem.health = 0;
+                    Console.WriteLine("\nYou guardian angel saved you! He grants his life to resurrect you with more " + 15 + " health points!");
                 }
 
-                if (personagem.health <= 0 && personagem.guardianAngelHealth == 0)
-                {
-                    Console.WriteLine("\nI knew you were weak but not that much! More luck next time hahahaha");
-                    Console.ReadKey();
+                if (personagem.health <= 0 && personagem.guardianAngelHealth == 0){
+                    fury.Defeat();
                     break;
-                }                
+                }
                 
                  // Exibir o status atual antes de perguntar novamente
                 Console.WriteLine("\nWhat's your next move? 1 or 2?");
@@ -130,7 +127,7 @@ namespace The_Shadow_Lands {
 
 
         public void case2(){
-            Console.WriteLine("\nTo erradicate all demons from this world, you must face the who's been ploting a war into this world, his name is: \n" + abraxis.name + "!");
+            Console.WriteLine("\nTo erradicate all demons from this world, you must face the one who's been ploting a war into this world, his name is: \n" + abraxis.name + "!");
             Console.WriteLine("\nWhat's your move?");
             Console.WriteLine("\nYOUR LIFE:" + personagem.health + "\nABRAXIS HEALTH:" + abraxis.health);
             Console.WriteLine("\n1 for slow but strong attack\n2 for fast but normal attack");
@@ -160,29 +157,24 @@ namespace The_Shadow_Lands {
                     continue;
                 }
 
-                // Verificar condições de vitória ou derrota dentro do loop
-                if (abraxis.health <= 0)
-                {
-                    Console.WriteLine("\nI can't believe I've been defeated by a mortal like you! Ahhhrgh!");
-                    Console.ReadKey();
+                if (abraxis.health <= 0){
+                    abraxis.Victory();
                     break;
                 }
 
-                if (personagem.health <= 0 && personagem.guardianAngelHealth == 1)
-                {
+                if (personagem.health <= 0 && personagem.guardianAngelHealth == 1){
                     personagem.health += personagem.health + 20;
                     personagem.guardianAngelHealth = 0;
-                    Console.WriteLine("\nYou guardian angel saved you! He grants his life to resurrect you with" + " " + personagem.health + " " + "more points of life");
+                    if (personagem.health < 0)
+                        personagem.health = 0;
+                    Console.WriteLine("\nYou guardian angel saved you! He grants his life to resurrect you with more " + 20 + " health points!");
                 }
 
-                if (personagem.health <= 0 && personagem.guardianAngelHealth == 0)
-                {
-                    Console.WriteLine("\nI knew you were weak but not that much! More luck next time hahahaha");
-                    Console.ReadKey();
+                if (personagem.health <= 0 && personagem.guardianAngelHealth == 0){
+                    abraxis.Defeat();
                     break;
                 }
 
-                // Exibir o status atual antes de perguntar novamente
                 Console.WriteLine("\nWhat's your next move? 1 or 2?");
                 Console.WriteLine("\nSlow attacks do " + personagem.strength + " of damage and Fast attacks do " + personagem.dexterity);
                 Console.WriteLine("\nYOUR LIFE:" + personagem.health + "\nABRAXIS HEALTH:" + abraxis.health);
@@ -194,7 +186,7 @@ namespace The_Shadow_Lands {
         public void case3(){
 
             Console.WriteLine("\nSo, you've reached the tree of life, the last chance to collect all lost souls and finally give them peace..." +
-                "\nAre you ready to face " + absalom.name + "to accomplish this mission?");
+            "\nAre you ready to face " + absalom.name + " to accomplish this mission?");
             Console.WriteLine("\nWhat's your move?");
             Console.WriteLine("\nYOUR LIFE:" + personagem.health + "\nABSALOM HEALTH:" + absalom.health);
             Console.WriteLine("\n1 for slow but strong attack\n2 for fast but normal attack");
@@ -224,29 +216,24 @@ namespace The_Shadow_Lands {
                     continue;
                 }
 
-                // Verificar condições de vitória ou derrota dentro do loop
-                if (absalom.health <= 0)
-                {
-                    Console.WriteLine("\nI can't believe I've been defeated by a mortal like you! Ahhhrgh!");
-                    Console.ReadKey();
+                if (absalom.health <= 0){
+                    absalom.Victory();
                     break;
                 }
 
-                if (personagem.health <= 0 && personagem.guardianAngelHealth == 1)
-                {
+                if (personagem.health <= 0 && personagem.guardianAngelHealth == 1){
                     personagem.health += personagem.health + 25;
                     personagem.guardianAngelHealth = 0;
-                    Console.WriteLine("\nYou guardian angel saved you! He grants his life to resurrect you with" + " " + personagem.health + " " + "more points of life");
+                    if (personagem.health < 0)
+                        personagem.health = 0;
+                    Console.WriteLine("\nYou guardian angel saved you! He grants his life to resurrect you with more " + 25 + " health points!");
                 }
 
-                if (personagem.health <= 0 && personagem.guardianAngelHealth == 0)
-                {
-                    Console.WriteLine("\nYou were always weak, don't even bother next time! HAHAHAHAHA");
-                    Console.ReadKey();
+                if (personagem.health <= 0 && personagem.guardianAngelHealth == 0){
+                    absalom.Defeat();
                     break;
                 }
 
-                // Exibir o status atual antes de perguntar novamente
                 Console.WriteLine("\nWhat's your next move? 1 or 2?");
                 Console.WriteLine("\nSlow attacks do " + personagem.strength + " of damage and Fast attacks do " + personagem.dexterity);
                 Console.WriteLine("\nYOUR LIFE:" + personagem.health + "\nABSALOM HEALTH:" + absalom.health);

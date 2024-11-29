@@ -33,8 +33,8 @@ namespace The_Shadow_Lands{
             name = nomeDado;
             //dados padrao
             health = 70;
-            strength = 40;
-            dexterity = 25;
+            strength = 30;
+            dexterity = 20;
             guardianAngel = "Kevin";
             guardianAngelHealth = 1;
             Console.WriteLine("\nHello mortal one called: " + nomeDado);
